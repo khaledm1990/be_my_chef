@@ -18,19 +18,24 @@ ActiveRecord::Schema.define(version: 20160309014545) do
 
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.string   "description"
+    t.date     "date"
+    t.integer  "guest_number"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "nationality"
+    t.string   "image"
     t.boolean  "chef_status",            default: false
     t.string   "about_chef"
     t.string   "speciality"
     t.string   "chef_ic"
-    t.string   "chef_number"
-    t.string   "chef_nationality"
     t.string   "chef_experience"
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false

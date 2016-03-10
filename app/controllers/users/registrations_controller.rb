@@ -49,8 +49,14 @@ before_filter :configure_account_update_params, only: [:update]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) << :chef_status
+    devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name << :phone_number << :nationality << :image << :chef_status << :about_chef << :speciality << :chef_ic << :chef_experience
   end
+
+
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.for(:account_update) { |u| u.permit() :first_name, :last_name, :phone_number, :nationality, :image, :chef_status, :about_chef, :speciality, :chef_ic, :chef_experience) }
+  # end
+
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

@@ -2,6 +2,12 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+
+  <div>
+    <label>Profile Image</label>
+    <%= f.file_field :image %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -19,6 +25,16 @@
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Nationality %><br />
+    <%= f.text_field :nationality, autofocus: true %>
   </div>
 
 
@@ -51,16 +67,6 @@
     <div class="field">
       <%= f.label :IC %><br />
       <%= f.text_field :chef_ic, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :phone_number %><br />
-      <%= f.text_field :chef_number, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :Nationality %><br />
-      <%= f.text_field :chef_nationality, autofocus: true %>
     </div>
 
     <div class="field">

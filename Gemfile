@@ -26,6 +26,8 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem "pundit"
 gem 'pg'
+gem "mini_magick"
+gem 'carrierwave'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
