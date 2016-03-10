@@ -12,9 +12,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-#   # For details on connection pooling, see rails configuration guide
-#   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+
 
 # development:
 #   <<: *default
@@ -43,3 +42,4 @@ production:
   database: be_my_chef_production
   username: be_my_chef
   password: <%= ENV['BE_MY_CHEF_DATABASE_PASSWORD'] %>
+
