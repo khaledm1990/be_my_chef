@@ -23,12 +23,12 @@ before_filter :configure_account_update_params, only: [:update]
 
   # PUT /resource
  def update
-  byebug
+  # byebug
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
 
     current_user.remove_image! if params[:user][:remove_image] == "1"
-    byebug
+    # byebug
     resource_updated = update_resource(resource, account_update_params)
     yield resource if block_given?
     if resource_updated
@@ -44,6 +44,15 @@ before_filter :configure_account_update_params, only: [:update]
       respond_with resource
     end
   end
+
+
+
+  # The default url to be used after updating a resource. You need to overwrite
+  # this method in your own RegistrationsController.
+  def after_update_path_for(resource)
+    user_path(current_user.id)
+  end
+
 
   # DELETE /resource
   # def destroy
