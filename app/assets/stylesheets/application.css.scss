@@ -91,7 +91,11 @@
 	border-color: #893c3c;
 	border-radius: 5px
 }
-
+.red:active:after{
+		background-color: #893c3c;
+	border-color: #893c3c;
+	border-radius: 5px
+}
 .bottom{
 	position:relative; 
 	bottom:0%; 
@@ -132,8 +136,8 @@
     height: 500px;
   }
 
-body{
-	margin: 0 auto -25px;
+.background{
+	background:url("http://www.hugscafe.org/wp-content/uploads/2014/05/157_1background3.jpg");
 }
 
 .red1 {
@@ -144,4 +148,14 @@ body{
 	}
 }
 
+.white {
+	color:white;
+}
 
+.foot{
+	.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.36);
+
+	}
+}
