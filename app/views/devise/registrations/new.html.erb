@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div>
-    <label>Profile Image</label>
+    <label>profile Image</label>
     <%= f.file_field :image %>
   </div>
 
@@ -48,61 +48,6 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-    <table class="table table-striped">
-
-      <tr>
-        <td>Title</td>
-        <td><%=@listing.title%></td>
-      </tr>
-      <tr>
-        <td>Adress</td>
-        <td><%=@listing.address%></td>
-      </tr>
-      <tr>
-      <tr>
-        <td>Price</td>
-        <td><%=@listing.price%></td>
-      </tr>
-      <tr>
-        <td>property_type</td>
-        <td><%=@listing.property_type%></td>
-      </tr>
-      <tr>
-        <td>room_type</td>
-        <td><%=@listing.room_type%></td>
-      </tr>
-      <tr>
-        <td>acommodates</td>
-        <td><%=@listing.acommodates%></td>
-      </tr>
-      <tr>
-        <td>bedrooms</td>
-        <td><%=@listing.bedrooms%></td>
-      </tr>
-      <tr>
-        <td>beds</td>
-        <td><%=@listing.beds%></td>
-      </tr>
-      <tr>
-        <td>bathrooms</td>
-        <td><%=@listing.bathrooms%></td>
-      </tr>
-      <tr>
-        <td>country</td>
-        <td><%=@listing.country%></td>
-      </tr>
-
-      <tr>
-        <td>city</td>
-        <td><%=@listing.city%></td>
-      </tr>
-
-      <tr>
-        <td>zip_code</td>
-        <td><%=@listing.zip_code%></td>
-      </tr>
-    </table>
-
 <% end %>
 
 <%= render "devise/shared/links" %>

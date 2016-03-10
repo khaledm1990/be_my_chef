@@ -7,6 +7,12 @@
     <label>Profile Image</label>
     <%= f.file_field :image %>
   </div>
+    <p>
+    <label>
+      <%= f.check_box :remove_image %>
+      Remove Profile Image
+    </label>
+  </p>
 
   <div class="field">
     <%= f.label :email %><br />
