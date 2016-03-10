@@ -1,10 +1,14 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :correct_event, only: [:edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @user = current_user
+    @events = current_user.events.all
+
   end
 
   # GET /events/1
@@ -15,16 +19,18 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event.build_location
   end
 
   # GET /events/1/edit
   def edit
+    @event.build_location if @event.location.nil?
   end
 
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.new(event_params)
 
     respond_to do |format|
       if @event.save
@@ -41,7 +47,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
-      if @event.update(event_params)
+      if @event.update_attributes(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -62,13 +68,21 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_event
       @event = Event.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.fetch(:event, {})
+      params.require(:event).permit(:name, :user_id, :date, :start_time,
+                                    :end_time, :pax, :variety, :description,
+                                    :location_attributes=>[:event_id, :block, :street, :city, :state, :postal_code]
+                                    )
     end
+
+    def correct_event
+      @event = Event.find(params[:id])
+      redirect_to root_path unless current_user.id == @event.user_id
+    end
+
 end
