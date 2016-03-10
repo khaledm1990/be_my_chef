@@ -9,21 +9,23 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-<%= render partial: "layouts/navbar" %>
-<%if notice%>
-<div class="alert alert-info">
-<%= notice %>
-</div>
-<%end%>
-<%if alert%>
-<div class="alert alert-danger">
-<%= alert %>
-</div>
-<%end%>
-<%= yield %>
+
+  <div class="container">
+    <%= render partial: "layouts/navbar" %>
+      <%if notice%>
+        <div class="alert alert-info">
+          <%= notice %>
+        </div>
+      <%end%>
+    <%if alert%>
+      <div class="alert alert-danger">
+        <%= alert %>
+      </div>
+    <%end%>
+    <%= yield %>
+  </div>
 </body>
-</div>
+
 
 <div class="container text-center bottom">
     <hr />
