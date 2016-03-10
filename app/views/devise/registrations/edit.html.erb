@@ -2,7 +2,6 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -11,6 +10,17 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -27,9 +37,48 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+  <% if current_user.chef_status == true || @become_a_chef %>
+    <div class="field">
+      <%= f.label :about_your_self %><br />
+      <%= f.text_area :about_chef, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :chef_speciality %><br />
+      <%= f.text_field :speciality, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :IC %><br />
+      <%= f.text_field :chef_ic, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_number %><br />
+      <%= f.text_field :chef_number, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Nationality %><br />
+      <%= f.text_field :chef_nationality, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Experience %><br />
+      <%= f.text_field :chef_experience, autofocus: true %>
+    </div>
+
+    <%= f.hidden_field :chef_status, :value => true %>
+
+
+  <% end %>
+
+
+<div class="actions">
+  <%= f.submit "Update" %>
+</div>
+
+
 <% end %>
 
 <h3>Cancel my account</h3>

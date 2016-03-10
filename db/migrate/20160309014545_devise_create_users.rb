@@ -4,7 +4,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :first_name
       t.string :last_name
-      t.string :chef_status , default: false
+      t.boolean :chef_status , default: false
+      t.string :about_chef
+      t.string :speciality
+      t.string :chef_ic
+      t.string :chef_number
+      t.string :chef_nationality
+      t.string :chef_experience
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

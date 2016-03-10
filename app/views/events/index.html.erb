@@ -9,6 +9,13 @@
     </tr>
   </thead>
 
+  <%= form_for(:user, url: edit_user_registration_path, method: :get) do |f| %>
+    <%= f.hidden_field :become_a_chef, value: true %>
+    <%= f.submit 'Become a chef' %>
+  <% end %>
+
+  <!-- <button id="show_chef_form" type="button">Become a Chef</button> -->
+
   <tbody>
     <% @events.each do |event| %>
       <tr>
