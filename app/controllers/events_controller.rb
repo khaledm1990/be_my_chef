@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   def index
     @user = current_user
     @events = current_user.events.all
-
   end
 
   # GET /events/1
