@@ -96,6 +96,18 @@
 	border-color: #893c3c;
 	border-radius: 5px
 }
+
+.red:focus{
+			background-color: #893c3c;
+	border-color: #893c3c;
+	border-radius: 5px
+}
+
+.red:active:focus{
+			background-color: #893c3c;
+	border-color: #893c3c;
+	border-radius: 5px
+}
 .bottom{
 	position:relative; 
 	bottom:0%; 
@@ -137,10 +149,11 @@
   }
 
 .background{
-	background:url("http://www.hugscafe.org/wp-content/uploads/2014/05/157_1background3.jpg");
+	background:url("backgroundbnw.jpg")
+	no-repeat fixed center;
 }
 
-.red1 {
+.red1-custom {
 	.btn-success:active:hover, .btn-success.active:hover, .open > .dropdown-toggle.btn-success:hover, .btn-success:active:focus, .btn-success.active:focus, .open > .dropdown-toggle.btn-success:focus, .btn-success:active.focus, .btn-success.active.focus, .open > .dropdown-toggle.btn-success.focus {
 		    color: #ffffff;
     background-color: #893c3c;
@@ -148,14 +161,46 @@
 	}
 }
 
+li.rip a:hover {
+    text-decoration: none;
+    background-color: rgba(230, 230, 230, 0.25);
+}
+
+a.white {
+	color:white;
+}
+
 .white {
 	color:white;
 }
 
-.foot{
-	.nav > li > a:hover, .nav > li > a:focus {
-    text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.36);
-
+.main{
+	background-color: #428833;
+	border-color: #428833; 
+	border-radius: 5px
 	}
+.main:hover{
+	background-color: #1D5811;
+	border-color: #1D5811;
+	border-radius: 5px
 }
+
+
+.main:active{
+	background-color: #124A06;
+	border-color: #124A06;
+	border-radius: 5px
+}
+.main:active:after{
+	background-color: #124A06;
+	border-color: #124A06;
+	border-radius: 5px
+}
+
+.main:focus{
+	background-color: #124A06;
+	border-color: #124A06;
+	border-radius: 5px
+}
+
+
