@@ -1,47 +1,49 @@
-<h2>Sign up</h2>
+<div class="container">
+<div>
+<h2 class="white">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <h2 class="white"><%= devise_error_messages! %></h2>
   <div>
-    <label>profile Image</label>
-    <%= f.file_field :image %>
+    <label class='white'>profile Image</label>
+    <%= f.file_field :image , :class => "white"%>
   </div>
 
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name, :class => "white"%><br />
     <%= f.text_field :first_name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name,:class => "white" %><br />
     <%= f.text_field :last_name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email,:class => "white" %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
     <div class="field">
-    <%= f.label :phone_number %><br />
+    <%= f.label :phone_number,:class => "white" %><br />
     <%= f.text_field :phone_number, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :Nationality %><br />
+    <%= f.label :Nationality ,:class => "white"%><br />
     <%= f.text_field :nationality, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password,:class => "white" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em class="white">(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation,:class => "white" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -52,3 +54,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
