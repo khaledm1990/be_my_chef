@@ -1,60 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="white">Listing Events</h1>
-
 <table>
   <thead>
     <tr>
       <th colspan="3"></th>
     </tr>
   </thead>
-  <div>
-    <div class="container">
-      <br>
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
+  <div class="container">
+    <br>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
 
-          <div class="item active">
-            <img src="https://i.ytimg.com/vi/uwRuV-iLcI8/maxresdefault.jpg" alt="Gordan Ramsey" class="size img-responsive" >
-          </div>
-
-          <div class="item">
-            <img src="http://cdn.sheknows.com/articles/2014/04/Mike/Sponsored/1035053/Woman-cooking-pasta-sauce.jpg" alt="someone" class="size img-responsive">
-          </div>
-
-          <div class="item">
-            <img src="http://s3-ap-southeast-2.amazonaws.com/asset.winning.com.au/bhc/uploads/2012/07/Best-Home-Chef-1.jpg" alt="another dude" class="size img-responsive">
-          </div>
-
-          <div class="item">
-            <img src="https://eddyskitchen.files.wordpress.com/2008/08/130425-eddy-cooking-school055.jpg" alt="KFC dude" class="size img-responsive">
-          </div>
-
+        <div class="item active">
+          <img src="https://i.ytimg.com/vi/uwRuV-iLcI8/maxresdefault.jpg" alt="Gordan Ramsey" class="size img-responsive" >
         </div>
 
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+        <div class="item">
+          <img src="http://cdn.sheknows.com/articles/2014/04/Mike/Sponsored/1035053/Woman-cooking-pasta-sauce.jpg" alt="someone" class="size img-responsive">
+        </div>
+
+        <div class="item">
+          <img src="http://s3-ap-southeast-2.amazonaws.com/asset.winning.com.au/bhc/uploads/2012/07/Best-Home-Chef-1.jpg" alt="another dude" class="size img-responsive">
+        </div>
+
+        <div class="item">
+          <img src="https://eddyskitchen.files.wordpress.com/2008/08/130425-eddy-cooking-school055.jpg" alt="KFC dude" class="size img-responsive">
+        </div>
+
       </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <div class="down red1">
-      <%= form_for(:user, url: edit_user_registration_path, method: :get) do |f| %>
-      <%= f.submit 'Create an event', :class => 'btn btn-success red btn-lg col-md-3 col-md-offset-3'%>
+  </div>
+  <div class="down red1">
+    <%= form_for(:user, url: new_event_path, method: :get) do |f| %>
+    <%= f.submit 'Create an event', :class => 'btn btn-success red btn-lg col-md-3 col-md-offset-3'%>
       <%end%>
       <% if current_user.nil? or current_user.chef_status != true%>
       <%= form_for(:user, url: edit_user_registration_path, method: :get) do |f| %>
@@ -66,13 +63,10 @@
       <%end%>
 
 
-      <!-- <button id="show_chef_form" type="button">Become a Chef</button> -->
-    </div>
+
+    <!-- <button id="show_chef_form" type="button">Become a Chef</button> -->
   </div>
-  <br>
-  <br>
-
-
+<br>
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+
