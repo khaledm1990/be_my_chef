@@ -1,49 +1,56 @@
 
 <div class="container">
-<div>
-   <%= image_tag current_user.image_url(:thumb).to_s if current_user.image %>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12 lead">User profile<hr></div>
+          </div>
+          <div class="row">
+      <div class="col-md-4 text-center">
+          <%= image_tag current_user.image_url(:small_thumb).to_s, class: "avatar img-circle", alt:"avatar" if current_user.image %>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 class="only-bottom-margin"><%=current_user.first_name %></h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <span class="text-muted">Email:</span><%= @user.email %><br>
+                  <span class="text-muted">Birth date:</span> 01.01.2001<br>
+                  <span class="text-muted">First Name:</span><%= @user.first_name %><br>
+                  <span class="text-muted">Last Name:</span><%= @user.last_name %><br>
+                  <span class="text-muted">Contact:</span><%= @user.phone_number %><br>
+                  <span class="text-muted">Nationality:</span><%= @user.nationality %><br>
+                  <span class="text-muted">Gender:</span> male<br>
+                  <span class="text-muted">Speciality:</span><%= @user.speciality %><br>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="activity-mini">
+                    <i class="glyphicon glyphicon-comment text-muted"></i> 500
+                  </div>
+                  <div class="activity-mini">
+                    <i class="glyphicon glyphicon-thumbs-up text-muted"></i> 1500
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+
+              <hr><%= button_to 'Edit', edit_user_registration_path(current_user.id), method: :get, class: "btn btn-default pull-right"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<table class="table table-striped">
-    <tr>
-      <td>Email</td>
-      <td><%= @user.email %></td>
-    </tr>
-    <tr>
-      <td>First_name</td>
-      <td><%= @user.first_name %></td>
-    </tr>
 
-    <tr>
-      <td>last_name</td>
-      <td><%= @user.last_name %></td>
-    </tr>
 
-    <tr>
-      <td>phone_number</td>
-      <td><%= @user.phone_number %></td>
-    </tr>
 
-    <tr>
-      <td>Nationality</td>
-      <td><%= @user.nationality %></td>
-    </tr>
-
-    <% if @user.chef_status == true  %>
-    <tr>
-      <td>About_chef</td>
-      <td><%= @user.about_chef %></td>
-    </tr>
-
-    <tr>
-      <td>My_IC</td>
-      <td><%= @user.chef_ic %></td>
-    </tr>
-
-      <tr>
-      <td>chef_speciality</td>
-      <td><%= @user.speciality %></td>
-    </tr>
-    <% end %>
-
-  </table>
-</div>
