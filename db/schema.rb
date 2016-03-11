@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160310092427) do
     t.string   "variety"
     t.string   "description"
   end
+
   create_table "locations", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "block"
