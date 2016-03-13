@@ -5,22 +5,16 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-<!--     // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 
 <body class="background">
-	<div class="container">
-		<%= render partial: "layouts/navbar" %>
+<%= render partial: "layouts/navbar" %>
+
 		<%if notice%>
-		<div class="alert alert-info">
-			<%= notice %>
-		</div>
-		<%end%>
-		<%if alert%>
-		<div class="alert alert-danger">
-			<%= alert %>
-		</div>
+  		<div class="alert alert-info">
+  			<p class="white"><%= notice %></p>
+  		</div>
 		<%end%>
 		<%= yield %>
 
@@ -33,9 +27,9 @@
     <div class="row">
         <div class="col-lg-12">
             <ul class="nav nav-pills nav-justified">
-                <li><a href="/">© 2016 Be My Chef</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Privacy</a></li>
+                <li class="rip"><a href="/" class="white">© 2016 Be My Chef</a></li>
+                <li class="rip"><a href="#" class="white">Terms of Service</a></li>
+                <li class="rip"><a href="#" class="white">Privacy</a></li>
             </ul>
         </div>
     </div>
