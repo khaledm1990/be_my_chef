@@ -1,0 +1,28 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+  <h1>Bid for <%= @event.name %>! </h1>
+    <%= form_for([@event, @bid]) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div >
+            <%= f.label :price %>
+            <%= f.text_field :price, placeholder: "Bidding Price", class: 'form-control' %>
+        <br/>
+        <%= f.label :message %>
+        <%= f.fields_for :messages do |ff| %>
+            <%= ff.text_area :content, placeholder: "Your message", class: 'form-control' %>
+            <%= ff.hidden_field :user_id, value: current_user.id %>
+        <% end %>
+        <%= f.hidden_field :event_id, value: params[:event_id] %>
+        <br/>
+      </div> 
+
+      <% if @bid.new_record? %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% else %>
+        <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <% end %>
+
+    <% end %>
+  </div>
+</div>

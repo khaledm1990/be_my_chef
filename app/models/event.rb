@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-	belongs_to :users
+	has_many :bids, dependent: :destroy
+	belongs_to :user
 	has_one :location, dependent: :destroy
 	accepts_nested_attributes_for :location
 
