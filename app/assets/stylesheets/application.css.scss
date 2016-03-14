@@ -207,5 +207,12 @@ a.white {
 	border-radius: 5px
 }
 
+.bold{
+	font-weight: bold;
+}
 
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: rgba(230, 230, 230, 0.25);
+}
 
