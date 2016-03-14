@@ -82,8 +82,8 @@ img.avatar {
 	border-radius: 5px
 	}
 .red:hover{
-	background-color: #C55656;
-	border-color: #C55656;
+	background-color: #B14D4D;
+	border-color: #B14D4D;
 	border-radius: 5px
 }
 
@@ -214,5 +214,32 @@ a.white {
 .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background-color: rgba(230, 230, 230, 0.25);
+}
+
+.thin{
+	width:150px;
+}
+
+.table-hover > tbody > tr:hover {
+    text-decoration: none;
+    background-color: rgba(230, 230, 230, 0.25);
+}
+
+.med {
+	width:180px;
+}
+
+.yell {
+	color:#e0f437;
+	&:hover {
+		color:#e0f437;
+
+	}
+	&:active{
+	color:#e0f437;
+	}
+	&:focus{
+	color:#e0f437;
+	}
 }
 

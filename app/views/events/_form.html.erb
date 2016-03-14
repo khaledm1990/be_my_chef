@@ -4,22 +4,22 @@
       <%= render 'shared/error_messages', object: f.object %>
       <div >
         <%= f.label :name %>
-        <%= f.text_field :name, placeholder: "Name", class: 'form-control' %>
+        <%= f.text_field :name, placeholder: "Name", class: 'form-control thin' %>
 
           <div class="form-group">
             <%= f.label :date %>
-            <%= f.text_field :date, placeholder: "Date", id: "date", class: 'form-control' %>
+            <%= f.date_field :date, class: 'form-control med' %>
           </div>
 
-          <div class="form-inline">
-          <div class="form-group">
+          <div class="row">
+          <div class="form-group col-md-3">
             <%= f.label :start_time %>
-            <%= f.text_field :start_time, placeholder: "Starting Time", class: 'form-control' %>
+            <%= f.text_field :start_time, placeholder: "Starting Time", class: 'form-control thin' %>
           </div>
 
-          <div class="form-group">
+          <div class="form-group col-md-3 col-md-offset-1">
             <%= f.label :end_time %>
-            <%= f.text_field :end_time, placeholder: "Ending Time", class: 'form-control' %>
+            <%= f.text_field :end_time, placeholder: "Ending Time", class: 'form-control thin' %>
           </div>
         </div>
 

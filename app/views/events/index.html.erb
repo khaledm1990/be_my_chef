@@ -13,7 +13,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.name, event %></td>
+        <td><%= link_to event.name, event, :class =>"white" %></td>
         <td><%= event.date %></td>
         <td>
           <% if event.bids.count > 0 %>
@@ -29,7 +29,7 @@
           <% end %>
           </td>
         <td></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"yell"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -37,5 +37,5 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path, :class=>"btn btn-success red"%>
 </div>
