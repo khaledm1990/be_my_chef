@@ -18,6 +18,11 @@ body {
   background-color: #eaeaea;
 }
 
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
 img.avatar {
   border: 1px solid #eee;
 }

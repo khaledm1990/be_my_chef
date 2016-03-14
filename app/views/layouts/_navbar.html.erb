@@ -29,10 +29,11 @@
                     <%= link_to 'Sign out', destroy_user_session_path, method: :delete , :class => "white bold"%>
                     </li>
               </ul>
+              <% if current_user.image.present? %>
           <li style="top:3px;">
            <%= image_tag current_user.image_url(:pthumb).to_s, class: "avatar img-circle", alt:"avatar" if current_user.image %>
            </li>
-            </li>
+           <%end%>
           </ul>
         <%else %>
           <ul class="nav navbar-nav navbar-right">
