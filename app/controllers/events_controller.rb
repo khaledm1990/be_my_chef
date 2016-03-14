@@ -2,13 +2,18 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :correct_event, only: [:edit, :update, :destroy]
+  before_action :is_chef?, only: :all
+
+  def all
+    @events = Event.all - current_user.events.all - 
+              Event.joins(:bids).where("bids.user_id = ?", current_user.id)
+  end
 
   # GET /events
   # GET /events.json
   def index
     @user = current_user
     @events = current_user.events.all
-
   end
 
   # GET /events/1
@@ -60,7 +65,16 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
+    event = Event.find(params[:id])
+    event.bids.each do |bid|
+      if bid.messages.count > 0
+        bid.messages.each do |msg|
+          msg.destroy
+        end
+      end
+      bid.destroy
+    end
+    event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
@@ -82,7 +96,12 @@ class EventsController < ApplicationController
 
     def correct_event
       @event = Event.find(params[:id])
-      redirect_to root_path unless current_user.id == @event.user_id
+      redirect_to events_path, notice: "Unauthorized site" unless current_user.id == @event.user_id
+    end
+
+
+    def is_chef?
+      redirect_to events_path, notice: "Only chefs are allowed to view others' events" unless current_user.chef_status 
     end
 
 end

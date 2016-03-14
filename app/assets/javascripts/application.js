@@ -15,15 +15,3 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
-
-
-$(document).ready(function(){
-
-  $("#chef_form").hide();
-  $( "#show_chef_form" ).click(function() {
-    $( "#chef_form" ).show(function(){
-      $("#show_chef_form").hide();
-    });
-
-  });
-});

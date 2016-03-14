@@ -7,5 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :events, dependent: :destroy
+  has_many :bids
+  has_many :messages
  # before_action :authenticate_user!
 end

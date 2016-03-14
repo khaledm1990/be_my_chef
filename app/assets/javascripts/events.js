@@ -1,3 +1,5 @@
+
 $(document).on('page:change', function(){
-	$('#date').datepicker();
+	$('#date').datepicker({ dateFormat: 'dd-mm-yy'}).val();
 })
+

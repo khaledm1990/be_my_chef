@@ -1,24 +1,34 @@
 
-<p id="notice"><%= notice %></p>
-<div class="container">
-<h1>Listing Events</h1>
+<div class="container white">
+<h1>My Events</h1>
 
-<table>
-  <thead>
+<table class="table table-hover ">
     <tr>
-      <th class="col-md-8">Event</th>
+      <th class="col-md-4">Event</th>
       <th class="col-md-2">Date</th>
-      <th></th>
+      <th class="col-md-4">Status</th>
       <th></th>
       <th></th>
     </tr>
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.name %></td>
+        <td><%= link_to event.name, event %></td>
         <td><%= event.date %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td>
+          <% if event.bids.count > 0 %>
+            <% if event.bids.where(deal: true).count  > 0 %>
+              <%= link_to Bid.where(event_id: event.id, deal: true).first.user.first_name, 
+                  bid_path(Bid.where(event_id: event.id, deal: true).first) %> chosen!
+            <% else %>
+              <%= event.bids.count %> bids: 
+              <% event.bids.each do |bid| %>
+                <%= link_to bid.user.first_name, bid_path(bid) %>
+              <% end %>
+            <% end %>
+          <% end %>
+          </td>
+        <td></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
