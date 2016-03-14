@@ -41,5 +41,5 @@ production:
   <<: *default
   database: be_my_chef_production
   username: be_my_chef
-  password: <%= ENV['BE_MY_CHEF_DATABASE_PASSWORD'] %>
+  password: ENV['BE_MY_CHEF_DATABASE_PASSWORD']
 

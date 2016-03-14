@@ -1,0 +1,22 @@
+
+<div class="container white">
+<h1>My Bids</h1>
+
+<table class="table table-hover ">
+    <tr>
+      <th class="col-md-6">Event</th>
+      <th class="col-md-2">Event Creator</th>
+      <th class="col-md-2">Date</th>
+      <th class="col-md-2">Status</th>
+    </tr>
+  <tbody>
+    <% @bids.each do |bid| %>
+      <tr>
+        <td><%= link_to bid.event.name, bid_path(bid) %></td>
+        <td><%= bid.event.user.first_name %></td>
+        <td><%= bid.event.date %></td>
+        <td><%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

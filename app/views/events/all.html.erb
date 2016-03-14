@@ -1,0 +1,23 @@
+<div class="container white">
+<h1>Events To Bid</h1>
+
+<table class="table table-hover ">
+    <tr>
+      <th class="col-md-4">Event</th>
+      <th class="col-md-2">Date</th>
+      <th class="col-md-2">Location(Postal Code)</th>
+      <th class="col-md-2">Event Creator</th>
+      <th></th>
+    </tr>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.location.postal_code %></td>
+        <td><%= event.user.first_name %></td>
+        <td><%= link_to 'Bid', new_event_bid_path(event.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
