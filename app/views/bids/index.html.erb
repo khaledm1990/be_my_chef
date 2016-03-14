@@ -7,14 +7,26 @@
       <th class="col-md-6">Event</th>
       <th class="col-md-2">Event Creator</th>
       <th class="col-md-2">Date</th>
-      <th class="col-md-2">Status</th>
+      <th class="col-md-1">Status</th>
+      <th class="col-md-1"></th>
     </tr>
   <tbody>
     <% @bids.each do |bid| %>
       <tr>
-        <td><%= link_to bid.event.name, bid_path(bid) %></td>
+        <td>
+          <% if bid.event.closed %>
+            <%= bid.event.name %>
+          <% else %>
+            <%= link_to bid.event.name, bid_path(bid) %>
+          <% end %>
+        </td>
         <td><%= bid.event.user.first_name %></td>
         <td><%= bid.event.date %></td>
+        <td>
+          <% if bid.event.closed %>
+            <p>Closed</p>
+          <% end %>
+        </td>
         <td><%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
