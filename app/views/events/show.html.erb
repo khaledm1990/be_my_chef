@@ -1,54 +1,7 @@
-<h1><%= @event.name %></h1>
-<div class="container-fluid">
-
-	<table class="table table-hover">
-		<tr>
-			<th></th>
-			<th></th>
-		</tr>
-		<tbody>
-			<tr>
-				<td>Date</td>
-				<td><%= @event.date %></td>
-			</tr>
-			<tr>
-				<td>Starting Time</td>
-				<td><%= @event.start_time %></td>
-			</tr>
-			<tr>
-				<td>Ending Time</td>
-				<td><%= @event.end_time %></td>
-			</tr>
-			<tr>
-				<td>Estimated Pax</td>
-				<td><%= @event.pax %></td>
-			</tr>
-			<tr>
-				<td>Location</td>
-				<td>
-					<ul>
-						<li><%= @event.location.block.to_s + ", " +
-										@event.location.street.to_s %></li>
-						<li><%= @event.location.city.to_s + ", " +
-										@event.location.state.to_s + ", " + 
-										@event.location.postal_code.to_s %></li>
-					</ul>
-				</td>
-				<tr>
-					<td>Cuisine Type</td>
-					<td><%= @event.variety %></td>
-				</tr>
-				<tr>
-					<td>Menu Description</td>
-					<td><%= @event.description %></td>
-				</tr>
-			</tr>
-		</tbody>
-	</table>
-	
-</div>
-
+<div class="white">
+<%= render 'event' %>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+</div>

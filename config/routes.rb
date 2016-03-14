@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events do
+    get "all", on: :collection
+    resources :bids, only: [:new, :create]
+  end
 
+  resources :bids, only: [:index, :show, :edit, :update, :destroy]
 
   devise_for :users, controllers: {
         registrations: 'users/registrations'

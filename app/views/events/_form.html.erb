@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8 col-md-offset-2">
     <%= form_for(@event) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div >
@@ -8,7 +8,7 @@
 
           <div class="form-group">
             <%= f.label :date %>
-            <%= f.text_field :date, placeholder: "Date", id: "date",class: 'form-control' %>
+            <%= f.text_field :date, placeholder: "Date", id: "date", class: 'form-control' %>
           </div>
 
           <div class="form-inline">
@@ -37,20 +37,20 @@
         
             <%= ff.text_field :postal_code, placeholder: "Postal Code" , class: 'form-control'%>
          
-        <% end %>
+        <% end %><br/>
         
 
-        <%= f.label :variety %>
+        <%= f.label :variety %><br/>
         <% ["Chinese", "Japanese", "Western", "Vietnamese", "Thai"].each do |v| %>
           <%= f.radio_button(:variety, "#{v}") %>
           <%= f.label(:variety, "#{v}") %>
-        <% end %><br />
+        <% end %><br/><br/>
 
         <%= f.label :number_of_guest %>
         <%= f.text_field :pax, class: 'form-control' %><br />
 
         <%= f.label :menu_description %>
-        <%= f.text_area :description, class: 'form-control' %>
+        <%= f.text_area :description, class: 'form-control' %><br/>
       </div> 
 
       <% if @event.new_record? %>
