@@ -11,19 +11,24 @@
 </head>
 
 <body class="background">
+<header id="header">
 <%= render partial: "layouts/navbar" %>
+</header>
 
+
+<div id="content">
 		<%if notice%>
   		<div class="alert alert-info">
   			<p class="white"><%= notice %></p>
   		</div>
 		<%end%>
 		<%= yield %>
+</div>
 
-</body>
 
 
-<div class="container text-center bottom">
+
+<div class="container text-center bottom" id="footer">
     <hr />
 
     <div class="row">
@@ -36,5 +41,5 @@
         </div>
     </div>
 </div>
-
+</body>
 </html>

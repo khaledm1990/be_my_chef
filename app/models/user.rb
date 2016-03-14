@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   												foreign_key: "voter_id",
   												dependent: :destroy
   has_many :voting, through: :active_votes, source: :voted
+
+
   has_many :passive_votes, 	class_name:  "Vote",
   													foreign_key: "voted_id",
   													dependent: :destroy
