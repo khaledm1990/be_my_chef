@@ -22,7 +22,7 @@
                 <li><%= link_to 'My Profile',user_path(current_user.id),method: :get %></li>
                 <li><%= link_to 'My Events',events_path,method: :get %></li>
                     <% if current_user.chef_status == true%>
-                      <li><%= link_to 'My Bids',user_path(current_user.id),method: :get %></li>
+                      <li><%= link_to 'My Bids',bids_path,method: :get %></li>
                       <%end%>
                     <li role="separator" class="divider"></li>
                     <li class="text-center">
