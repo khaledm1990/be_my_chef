@@ -6,7 +6,8 @@ class EventsController < ApplicationController
 
   def all
     @events = Event.all - current_user.events.all - 
-              Event.joins(:bids).where("bids.user_id = ?", current_user.id)
+              Event.joins(:bids).where("bids.user_id = ?", current_user.id) - 
+              Event.where(closed: true).all
   end
 
   # GET /events
