@@ -1,0 +1,87 @@
+
+<div class="container white">
+<h1><%= @bid.event.name %> by <%= @bid.event.user.first_name %></h1>
+
+<div class="container-fluid">
+	<table class="table table-hover">
+	<!-- <tr>
+		<th></th>
+		<th></th>
+	</tr> -->
+		<tbody>
+			<tr>
+				<td>Event</td>
+				<td><%= @bid.event.name %></td>
+			</tr>
+			<tr>
+				<td>Event Date</td>
+				<td><%= @bid.event.date %></td>
+			</tr>
+			<tr>
+				<td>Bidder</td>
+				<td><%= link_to @bid.user.first_name, user_path(@bid.user) %></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td>
+					
+					<% if current_user == @bid.user %>
+						<%= form_for (@bid) do |f| %>
+							<%= f.text_field :price %>
+							<%= f.submit "confirmed" %>
+						<% end %>
+					<% else %>
+						<%= @bid.price %>
+					<% end %>
+				</td>
+
+			</tr>
+			
+			<tr>
+				<td>Bidding status</td>
+				<% if (current_user == @bid.event.user) && 
+							@event.bids.where(deal: true).count < 1 %>
+					<td>
+						<%= form_for (@bid) do |f| %>
+							<%= f.check_box :deal, {}, true %>
+							<%= f.submit "confirmed" %>
+						<% end %>
+					</td>
+				<% end %>
+				<% if @bid.deal %>
+					<td>Confirmed</td>
+				<% else %>
+					<td>Not confirmed</td>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Messages</h3>
+		<% @bid.messages.each do |msg| %>
+			<% if msg.content %>
+				<div>
+					<%= msg.content %>
+					<p>posted by <%= msg.user.first_name %> @ <%= msg.created_at %></p>
+				</div>
+			<% end %>
+		<% end %>
+		
+		<br/>
+
+		<%= form_for(@bid) do |f| %>
+    	<%= f.fields_for :messages do |ff| %>
+    		<% if ff.object.new_record? %>
+        	<%= ff.text_area :content, placeholder: "Your message", class: 'form-control' %>
+        	<%= ff.hidden_field :user_id, value: current_user.id %>
+        <% end %>
+
+      <% end %>
+      <br/>
+     	<%= f.submit "Send", class: "btn btn-primary" %>
+    <% end %>
+	</div>
+
+	<% if current_user.bids.count > 0 %>
+		<%= link_to 'My Bids', bids_path %> |
+	<% end %>
