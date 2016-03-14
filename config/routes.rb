@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root "static#index"
+
   resources :events do
     get "all", on: :collection
     resources :bids, only: [:new, :create]
@@ -9,12 +12,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         registrations: 'users/registrations'
       }
- resources :users, only: [:show]
+      
+  resources :users, only: [:show] do
+    member do
+      get :voting, :voters
+    end
+  end
 
+  resources :votes, only: [:create]
 
-
-
-  root "static#index"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
