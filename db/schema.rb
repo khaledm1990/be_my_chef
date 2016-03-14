@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160314024920) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,8 +38,9 @@ ActiveRecord::Schema.define(version: 20160314024920) do
     t.string   "pax"
     t.string   "variety"
     t.string   "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "closed",        default: false
   end
 
   create_table "locations", force: :cascade do |t|
