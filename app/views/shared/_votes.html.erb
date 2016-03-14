@@ -1,0 +1,8 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <p><%= @user.passive_votes.where("votes.cast = ?", "1").count %>
+  <img alt="Up logo" src="/assets/Thumb-Up-Sign.png" width="20" />
+  
+  <%= @user.passive_votes.where("votes.cast = ?", "-1").count %>
+  <img alt="Down logo" src="/assets/Thumb-Down-Sign.png" width="20"/></p>
+</div>
