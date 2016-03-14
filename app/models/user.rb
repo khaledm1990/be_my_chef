@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
   													dependent: :destroy
   has_many :voters, through: :passive_votes, source: :voter
 
-  # validates :voter_id, presence: true
-  # validates :voted_id, presence: true
+  validates :voter_id, presence: true
+  validates :voted_id, presence: true
 
  # before_action :authenticate_user!
 
