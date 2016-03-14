@@ -1,6 +1,8 @@
 class BidsController < ApplicationController
 	# only chef can create, delete bids & update price
 	# only user can update deal
+  include BidsHelper
+
 	before_filter :check_id, only: [:new, :create]
 	before_filter :correct_bid, only: [:show, :edit, :update]
   before_filter :own_bid, only: :destroy
@@ -45,7 +47,9 @@ class BidsController < ApplicationController
     @bid = Bid.find(params[:id])
     respond_to do |format|
       if @bid.update_attributes(bid_params)
-        # @bid.messages.find(params[:id]).update_attributes(user_id: current_user.id) if @bid.messages
+        puts " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++="
+        p @bid.event
+        close_event(@bid.event)
         format.html { redirect_to @bid, notice: 'Bid was successfully updated.' }
         format.json { render :show, status: :ok, location: @bid}
       else
@@ -79,7 +83,6 @@ class BidsController < ApplicationController
   	@bid = Bid.find(params[:id])
   	@event = Event.find(@bid.event_id)
     unless (current_user == @event.user) || (current_user == @bid.user)
-      puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       redirect_to events_path, notice: 'Forbidden site for strangers!'
     end
   end
