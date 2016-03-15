@@ -16,6 +16,9 @@
         <%if signed_in?%>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to 'Create Event',new_event_path,method: :get, :class=>"white" %></li>
+            <% if current_user.chef_status == true %>
+              <li><%= link_to 'See Events',all_events_path,method: :get, :class=>"white" %></li>
+              <%end%>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.first_name%> <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -37,9 +40,9 @@
           </ul>
         <%else %>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="bold white rip">Help</a></li>
-            <li><%= link_to 'Create Account',new_user_registration_path,method: :get, :class => "white bold rip"%></li>
-            <li><%= link_to 'Log in',user_session_path,method: :post, :class => "white bold rip"%></li>
+            <li><a href="#" class="white rip">How it works</a></li>
+            <li><%= link_to 'Create Account',new_user_registration_path,method: :get, :class => "white rip"%></li>
+            <li><%= link_to 'Log in',user_session_path,method: :post, :class => "white rip"%></li>
             <%end %>
           </ul>
       </div><!-- /.navbar-collapse -->
