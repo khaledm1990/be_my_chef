@@ -24,27 +24,19 @@
 			<tr>
 				<td>Price</td>
 				<td>
-					
-					<% if current_user == @bid.user %>
-						<%= form_for (@bid) do |f| %>
-							<%= f.text_field :price %>
-							<%= f.submit "confirmed" %>
-						<% end %>
-					<% else %>
-						<%= @bid.price %>
-					<% end %>
+					<%= @bid.price %>
 				</td>
 
 			</tr>
-			
+
 			<tr>
 				<td>Bidding status</td>
-				<% if (current_user == @bid.event.user) && 
+				<% if (current_user == @bid.event.user) &&
 							@event.bids.where(deal: true).count < 1 %>
 					<td>
 						<%= form_for (@bid) do |f| %>
 							<%= f.check_box :deal, {}, true %>
-							<%= f.submit "confirmed" %>
+							<%= f.submit "confirmed", class: "btn btn-success"%>
 						<% end %>
 					</td>
 				<% end %>
@@ -66,7 +58,7 @@
 				</div>
 			<% end %>
 		<% end %>
-		
+
 		<br/>
 
 		<%= form_for(@bid) do |f| %>
