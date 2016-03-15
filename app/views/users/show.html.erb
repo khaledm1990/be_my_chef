@@ -9,7 +9,7 @@
           </div>
           <div class="row">
       <div class="col-md-4 text-center">
-          <%= image_tag current_user.image_url(:small_thumb).to_s, class: "avatar img-circle", alt:"avatar" if current_user.image %>
+          <%= image_tag @user.image_url(:small_thumb).to_s, class: "avatar img-circle", alt:"avatar" if @user.image %>
             </div>
             <div class="col-md-8">
               <div class="row">
@@ -30,12 +30,6 @@
 
                 </div>
                 <div class="col-md-6">
-                  <div class="activity-mini">
-                    <i class="glyphicon glyphicon-comment text-muted"></i> 500
-                  </div>
-                  <div class="activity-mini">
-                    <i class="glyphicon glyphicon-thumbs-up text-muted"></i> 1500
-                  </div>
                   <div>
                     <%= render '/shared/votes' %>
                   </div>
