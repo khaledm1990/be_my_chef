@@ -22,32 +22,32 @@
       <div class="item active">
         <img src="https://i.ytimg.com/vi/uwRuV-iLcI8/maxresdefault.jpg" alt="Gordan Ramsey" class="size img-responsive" >
         <div class="carousel-caption">
-          <h3 class="captions">Ramsey</h3>
-          <p class="captions">This guy is legit</p>
+          <h2 class="captions">Ramsey</h2>
+          <h3 class="captions">This guy is legit</h3>
         </div>
       </div>
 
       <div class="item">
         <img src="http://cdn.sheknows.com/articles/2014/04/Mike/Sponsored/1035053/Woman-cooking-pasta-sauce.jpg" alt="someone" class="size img-responsive">
         <div class="carousel-caption">
-         <h3 class="captions">User</h3>
-          <p class="captions">gets to own him for an event</p>
+         <h2 class="captions">User</h2>
+          <h3 class="captions">gets to own him for an event</h3>
        </div>
      </div>
 
      <div class="item">
       <img src="http://s3-ap-southeast-2.amazonaws.com/asset.winning.com.au/bhc/uploads/2012/07/Best-Home-Chef-1.jpg" alt="another dude" class="size img-responsive">
         <div class="carousel-caption">
-          <h3 class="captions">Events</h3>
-          <p class="captions">Create one</p>
+          <h2 class="captions">Events</h2>
+          <h3 class="captions">Create one</h3>
         </div>
    </div>
 
    <div class="item">
     <img src="https://eddyskitchen.files.wordpress.com/2008/08/130425-eddy-cooking-school055.jpg" alt="KFC dude" class="size img-responsive">
     <div class="carousel-caption">
-     <h3 class="captions">Food</h3>
-          <p class="captions">yum yum</p>
+     <h2 class="captions">Food</h2>
+          <h3 class="captions">yum yum</h3>
    </div>
  </div>
 
@@ -64,23 +64,38 @@
 </a>
 </div>
 </div>
-<div class="down red1">
+<div class="down red1 container">
 
-  <%= link_to 'Create Event', new_event_path,class:'btn btn-success main btn-lg col-md-3 col-md-offset-2 '%>
+  <%= link_to 'Create Event', new_event_path,class:'btn btn-success main btn-lg col-md-4 col-md-offset-1 '%>
   <% if current_user.nil? or current_user.chef_status != true%>
 
   <%= form_for(:user, url: edit_user_registration_path, method: :get) do |f| %>
   <%= f.hidden_field :become_a_chef, value: true %>
-  <%= f.submit 'Become a chef',class:'btn btn-success main btn-lg col-md-3 col-md-offset-1' %>
+  <%= f.submit 'Become a chef',class:'btn btn-success main btn-lg col-md-4 col-md-offset-2' %>
   <% end %>
   <%else%>
-  <%= link_to 'See Events', all_events_path, method: :get, :class=> 'btn btn-success main btn-lg col-md-3 col-md-offset-1'%>
+  <%= link_to 'See Events', all_events_path, method: :get, :class=> 'btn btn-success main btn-lg col-md-4 col-md-offset-2'%>
   <%end%>
-
-</div>
-</div>
-</div>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 <hr />
 <h1 class="center white">How It Works</h1>
+<h3 class="white center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut sagittis sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque sit amet tellus metus. Duis ut finibus nibh, a sodales leo. Sed sed nisl turpis. Donec orci augue, venenatis sed viverra eu, iaculis quis justo. Vivamus quis volutpat purus. Sed pulvinar, lacus et gravida imperdiet, lorem augue gravida felis, vitae imperdiet lacus elit sed felis. Nunc id leo nec nisl scelerisque efficitur. Suspendisse elit orci, egestas eget auctor sed, pretium eu eros. Morbi vel tortor at ante facilisis imperdiet. Phasellus ornare justo nec rutrum lacinia.
+
+Quisque sodales imperdiet tellus in faucibus. Quisque laoreet neque sit amet neque luctus aliquet. Sed accumsan felis dui, a pulvinar quam tempus eu. Etiam faucibus iaculis gravida. Nunc tempor erat sed nulla facilisis, id consectetur nunc imperdiet. Ut vel libero in nibh volutpat lobortis eu ut leo. Nam cursus turpis dolor, sed aliquet turpis tincidunt ac. Quisque non quam molestie, porttitor ante nec, semper sem. Etiam fringilla orci at augue ultrices tempor. Vivamus molestie nunc et tortor finibus, ut gravida sapien condimentum. Maecenas id malesuada diam. Ut sed nibh quis urna finibus ullamcorper vitae eu neque. Aliquam auctor vestibulum elit vitae iaculis. Nam pretium euismod dolor nec faucibus. Fusce eget sollicitudin arcu. Aenean quam erat, vulputate vitae ullamcorper ac, tempus in nisi.
+
+In posuere velit vitae mauris fermentum elementum. Proin euismod auctor congue. Sed ullamcorper augue nibh, nec varius odio luctus ac. Pellentesque commodo faucibus libero, non convallis ligula interdum vel. Sed risus nibh, pharetra sed diam sit amet, tincidunt euismod tortor. Donec a semper urna, ut ultricies est. Integer volutpat lorem ac nulla mollis aliquam. Phasellus elementum nec neque in condimentum. In et metus sed leo elementum scelerisque ac imperdiet dolor. Pellentesque posuere mauris nec urna laoreet, ullamcorper vehicula eros semper. Curabitur dictum, justo non mattis dignissim, ante odio convallis dolor, et luctus nulla felis sit amet augue. Pellentesque consequat libero quis malesuada efficitur. Suspendisse sapien enim, venenatis ac suscipit at, lobortis nec sapien.
+
+Fusce ut lectus tempor mi posuere interdum a eu dui. Donec vitae tincidunt augue. Mauris eleifend erat quis viverra sollicitudin. Nam volutpat vel mi sit amet efficitur. Suspendisse potenti. Nulla facilisi. Aenean vehicula vestibulum magna, at malesuada augue efficitur a. Nam congue fermentum egestas. Nunc non magna ex.
+
+Maecenas molestie, enim quis tincidunt dictum, libero velit hendrerit justo, ut semper sem velit a nibh. Ut aliquam enim neque, vitae sodales libero semper sit amet. Suspendisse potenti. Suspendisse ullamcorper vestibulum pellentesque. Phasellus sed fermentum arcu. Sed sed porta nisi. Curabitur nec finibus sem, sit amet condimentum lacus. Sed semper nec magna a lobortis. Nullam vitae augue vel tellus fermentum ornare et id diam. Integer fringilla elementum ligula, nec imperdiet nisi tincidunt eu. Sed at elit id dolor interdum hendrerit. Sed eget diam eget odio eleifend sodales. Praesent euismod consectetur turpis. Pellentesque sollicitudin elementum ipsum et rutrum. Aenean massa risus, commodo ut felis vel, ultrices pharetra nisi.</h3>
+
+</div>
+</div>
 
